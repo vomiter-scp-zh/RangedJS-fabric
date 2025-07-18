@@ -2,10 +2,10 @@
 	"schemaVersion": 1,
 	"id": "rangedjs",
 	"version": "${version}",
-	"name": "Template Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "RangedJS",
+	"description": "A kubejs addon for making/modifying bows.",
 	"authors": [
-		"Me!"
+		"vomiter"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
