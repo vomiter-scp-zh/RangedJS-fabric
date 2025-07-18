@@ -17,9 +17,7 @@ public class ProjectileHitBlockEventJS extends ProjectileHitEventJS{
 
     public BlockContainerJS getBlock(){
         BlockPos pos = ((BlockHitResult)hitResult).getBlockPos();
-        return new BlockContainerJS(getLevel(),
-                pos
-        );
+        return new BlockContainerJS(getLevel(), pos);
     }
 
     @Override
