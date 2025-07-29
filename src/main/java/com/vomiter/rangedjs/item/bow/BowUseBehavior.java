@@ -1,13 +1,14 @@
 package com.vomiter.rangedjs.item.bow;
 
 
+import com.vomiter.rangedjs.item.UseBehavior;
 import com.vomiter.rangedjs.item.context.BowReleaseContext;
 import com.vomiter.rangedjs.item.context.BowUseContext;
 import dev.latvian.mods.kubejs.typings.Info;
 
 import java.util.function.Consumer;
 
-public class BowUseBehavior {
+public class BowUseBehavior extends UseBehavior {
     protected Consumer<BowReleaseContext> releaseCallback = (t) -> {};
     protected Consumer<BowUseContext> useCallback = (t)->{};
     protected Consumer<BowUseContext> useTickCallback = (t)->{};

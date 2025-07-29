@@ -1,13 +1,17 @@
 package com.vomiter.rangedjs.item.bow;
 
+import com.vomiter.rangedjs.item.ArrowShootingProperties;
+import com.vomiter.rangedjs.item.ArrowShootingAttributes;
+import com.vomiter.rangedjs.item.UseBehavior;
+import com.vomiter.rangedjs.projectile.ArrowHitBehavior;
 import com.vomiter.rangedjs.projectile.HitBehavior;
 import dev.latvian.mods.kubejs.typings.Info;
 
 import java.util.function.Consumer;
 
-public class BowProperties {
+public class BowProperties implements ArrowShootingProperties {
     protected final BowAttributes bowAttributes = new BowAttributes();
-    protected final HitBehavior hitBehavior = new HitBehavior();
+    protected final ArrowHitBehavior hitBehavior = new ArrowHitBehavior();
     protected BowUseBehavior bowUseBehavior = new BowUseBehavior();
 
     public BowProperties(){}
@@ -21,7 +25,7 @@ public class BowProperties {
 
     @Info("To add stuffs that will happen when the shot arrows hit entity/block")
     @SuppressWarnings("unused")
-    public BowProperties onArrowHit(Consumer<HitBehavior> b){
+    public BowProperties onArrowHit(Consumer<ArrowHitBehavior> b){
         b.accept(hitBehavior);
         return this;
     }
@@ -31,5 +35,20 @@ public class BowProperties {
     public BowProperties onUse(Consumer<BowUseBehavior> b){
         b.accept(bowUseBehavior);
         return this;
+    }
+
+    @Override
+    public UseBehavior getUseBehavior() {
+        return bowUseBehavior;
+    }
+
+    @Override
+    public ArrowShootingAttributes getAttributes() {
+        return bowAttributes;
+    }
+
+    @Override
+    public HitBehavior getHitBehavior() {
+        return hitBehavior;
     }
 }

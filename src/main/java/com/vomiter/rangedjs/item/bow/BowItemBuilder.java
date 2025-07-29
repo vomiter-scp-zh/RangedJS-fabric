@@ -1,9 +1,7 @@
 package com.vomiter.rangedjs.item.bow;
 
-import com.vomiter.rangedjs.RangedJS;
 import dev.latvian.mods.kubejs.item.ItemBuilder;
 import dev.latvian.mods.kubejs.typings.Info;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BowItem;
 import net.minecraft.world.item.Item;
@@ -32,9 +30,6 @@ public class BowItemBuilder extends ItemBuilder {
     public Item createObject() {
         BowItem newBow = new BowItem(createItemProperties());
         ((BowItemInterface)newBow).rjs$setBowProperties(bowProperties);
-
-        ItemProperties.register(newBow, BowUtils.PULL, BowUtils.PULL_PROVIDER);
-        ItemProperties.register(newBow, BowUtils.PULLING, BowUtils.PULLING_PROVIDER);
         if(anim == null){
             anim = UseAnim.BOW;
         }

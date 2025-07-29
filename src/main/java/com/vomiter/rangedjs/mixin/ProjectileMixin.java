@@ -1,6 +1,10 @@
 package com.vomiter.rangedjs.mixin;
 
-import com.vomiter.rangedjs.projectile.*;
+import com.vomiter.rangedjs.projectile.HitBehavior;
+import com.vomiter.rangedjs.projectile.ProjectileInterface;
+import com.vomiter.rangedjs.projectile.hitevents.ProjectileHitBlockEventJS;
+import com.vomiter.rangedjs.projectile.hitevents.ProjectileHitEntityEventJS;
+import com.vomiter.rangedjs.projectile.hitevents.ProjectileHitEventJS;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -15,16 +19,16 @@ import java.util.Optional;
 @Mixin(value = Projectile.class)
 public class ProjectileMixin implements ProjectileInterface {
     @Unique
-    private HitBehavior rangedjs$hitBehavior;
+    private HitBehavior rangedjs$HitBehavior;
 
     @Override
     public HitBehavior rangedjs$getHitBehavior(){
-        return Optional.ofNullable(this.rangedjs$hitBehavior).orElse(new HitBehavior());
+        return Optional.ofNullable(this.rangedjs$HitBehavior).orElse(new HitBehavior());
     }
 
     @Override
     public void rangedjs$setHitBehavior(HitBehavior h){
-        this.rangedjs$hitBehavior = h;
+        this.rangedjs$HitBehavior = h;
     }
 
     @Inject(method = "onHitEntity", at = @At("HEAD"), cancellable = true)
@@ -39,5 +43,6 @@ public class ProjectileMixin implements ProjectileInterface {
         ProjectileHitBlockEventJS eventJS = new ProjectileHitBlockEventJS(hitResult, (Projectile) (Object) this, ci);
         HitBehavior hitBehavior = this.rangedjs$getHitBehavior();
         Optional.ofNullable(hitBehavior.getHitBlock()).orElse(t->{}).accept(eventJS);
+        if(eventJS.getEventResult() == ProjectileHitEventJS.Result.DENY) ci.cancel();
     }
 }

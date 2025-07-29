@@ -5,14 +5,18 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AbstractArrowMixin",
-    "BowOnReleaseMixin",
     "BowItemMixin",
+    "BowOnShootMixin",
+    "CrossbowItemMixin",
+    "CrossbowOnShootMixin",
     "LivingEntityMixin",
-    "ProjectileMixin"
+    "ProjectileMixin",
+    "model.CrossbowBuilderMixin"
   ],
   "client": [
     "AbstractClientPlayerMixin",
-    "GenerateClientAssetsEventJSMixin"
+    "GenerateClientAssetsEventJSMixin",
+    "model.BowBuilderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

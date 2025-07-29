@@ -13,6 +13,7 @@ public class UseContext {
     private final Level level;
     private final Player player;
     private final InteractionHand hand;
+
     private Result result = Result.DEFAULT;
     private final CallbackInfo ci;
 
@@ -66,4 +67,5 @@ public class UseContext {
     public InteractionHand getHand() {
         return hand;
     }
+
 }
