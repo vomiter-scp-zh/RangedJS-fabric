@@ -47,10 +47,10 @@ dependencies {
 
 	modImplementation "dev.latvian.mods:rhino-$loader:$rhino_version"
 
+	modImplementation "curse.maven:archery-expansion-1164945:6424926"
+
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-
-
 
 	implementation "io.github.llamalad7:mixinextras-common:0.2.0"
 

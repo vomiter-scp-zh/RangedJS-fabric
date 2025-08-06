@@ -1,11 +1,12 @@
 package com.vomiter.rangedjs.item.crossbow;
 
 import com.vomiter.rangedjs.item.ArrowShootingProperties;
-import com.vomiter.rangedjs.item.ArrowShootingAttributes;
 import com.vomiter.rangedjs.item.UseBehavior;
 import com.vomiter.rangedjs.projectile.ArrowHitBehavior;
 import com.vomiter.rangedjs.projectile.HitBehavior;
 import dev.latvian.mods.kubejs.typings.Info;
+import dev.latvian.mods.rhino.util.HideFromJS;
+import net.minecraft.world.item.Item;
 
 import java.util.function.Consumer;
 
@@ -13,8 +14,21 @@ public class CrossbowProperties implements ArrowShootingProperties {
     protected final CrossbowAttributes crossbowAttributes = new CrossbowAttributes();
     protected final ArrowHitBehavior arrowhitBehavior = new ArrowHitBehavior();
     protected CrossbowUseBehavior crossbowUseBehavior = new CrossbowUseBehavior();
+    protected Item item;
 
     public CrossbowProperties(){}
+
+    @Override
+    @HideFromJS
+    public Item getItem(){
+        return item;
+    }
+
+    @HideFromJS
+    public void setItem(Item i){
+        item = i;
+    }
+
 
     @Info("To modify some default attributes of the bow. E.g. ticks to full charge, base arrow damage, native enchantment-like capabilities.")
     @SuppressWarnings("unused")
@@ -43,7 +57,7 @@ public class CrossbowProperties implements ArrowShootingProperties {
     }
 
     @Override
-    public ArrowShootingAttributes getAttributes() {
+    public CrossbowAttributes getAttributes() {
         return crossbowAttributes;
     }
 

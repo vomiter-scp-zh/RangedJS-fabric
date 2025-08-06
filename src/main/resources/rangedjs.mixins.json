@@ -3,6 +3,7 @@
   "minVersion": "0.8",
   "package": "com.vomiter.rangedjs.mixin",
   "compatibilityLevel": "JAVA_17",
+  "plugin": "com.vomiter.rangedjs.RangedJSMixinPlugin",
   "mixins": [
     "AbstractArrowMixin",
     "BowItemMixin",
@@ -11,9 +12,13 @@
     "CrossbowOnShootMixin",
     "LivingEntityMixin",
     "ProjectileMixin",
+    "compat.archeryexp.ArcheryExpBarMixin",
+    "compat.archeryexp.BowItemBuilderMixin",
+    "compat.archeryexp.BowPropertiesMixin",
     "model.CrossbowBuilderMixin"
   ],
   "client": [
+    "compat.archeryexp.AExpBowPropertiesMixin",
     "AbstractClientPlayerMixin",
     "GenerateClientAssetsEventJSMixin",
     "model.BowBuilderMixin"

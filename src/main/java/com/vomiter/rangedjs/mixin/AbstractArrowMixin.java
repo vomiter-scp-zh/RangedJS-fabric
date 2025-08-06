@@ -2,9 +2,7 @@ package com.vomiter.rangedjs.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalIntRef;
-import com.vomiter.rangedjs.projectile.ArrowHitBehavior;
-import com.vomiter.rangedjs.projectile.HitBehavior;
-import com.vomiter.rangedjs.projectile.ProjectileInterface;
+import com.vomiter.rangedjs.projectile.*;
 import com.vomiter.rangedjs.projectile.hitevents.ArrowHitEntityEventJS;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;

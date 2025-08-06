@@ -81,7 +81,7 @@ public abstract class BowOnShootMixin implements BowItemInterface {
         if(!(player instanceof Player)) return returnValue;
         if(!returnValue && this.rjs$getBowAttributes().isInfinity()){
             returnValue = (arrow.getItem() instanceof ArrowItem
-                    && arrow.getItem() == Items.ARROW);
+                    && (arrow.getItem()).equals(Items.ARROW));
         }
         return returnValue;
     }
